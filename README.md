@@ -2,6 +2,7 @@
 
 This directory contains all language-related definitions for the `AutoLangField` package.
 You can use it to customize the language detection in the package.
+Contains the RegExp patterns for +81 language, its Language Code and the language data 
 
 ## File Details:
 
