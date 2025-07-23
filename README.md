@@ -19,11 +19,35 @@ Contains the RegExp patterns for +81 language, its Language Code and the languag
 2. `languages_regexp.dart`:
 
    ```dart
-   const Map<LanguageCode, RegExp> languageRegExp = {
-    LanguageCode.en: RegExp(r'[a-zA-Z]'),
-    LanguageCode.ar: RegExp(r'[\u0600-\u06FF]'),
-    // ...language-specific regex patterns
-   };
+   class LanguageRegExp {
+       static final RegExp deRegExp = RegExp(
+       r'(?:[äöüÄÖÜß]|'
+       r'\b(ich|esse|einen|apfel|der|die|das|und|in|den|von|zu|mit|sich|ist|für|auf|ein|eine|nicht|als|auch|er|sie|es|haben|werden|wie|du)\b)',
+       caseSensitive: false,
+       unicode: true,
+        );
+      
+        /// RegExp for the Japanese language
+        /// Language has code => [LanguageCode.ja]
+      
+        static final RegExp jaRegExp = RegExp(
+          r'[\u3040-\u309F\u30A0-\u30FF]' // Hiragana and Katakana
+          r'|'
+          r'\b(の|に|は|を|が|で|と|た|し|て|です|ます|である|から|まで|より|として|による|について|における|に対して|において|によって|をもって|をめぐって|として|について|における|に関して|に対する|によると)\b'
+          r'|'
+          r'(の|に|は|を|が|で|と|た|し|て|です|ます|である|から|まで|より|として|による|について|における|に対して|において|によって|これ|それ|あれ|この|その|あの|ここ|そこ|あそこ|だれ|何|どこ|いつ|なぜ|どう|どの|どんな|いくら|いくつ|どれ|どちら)'
+          r'|'
+          r'(は|が|を|に|で|と|から|まで|より|へ|や|か|も|だけ|しか|など|ほど|くらい|ぐらい|ばかり|だって|って|という|といった|とか|など|なんか|なんて)'
+          r'|'
+          r'(です|ます|だった|でした|ている|ていた|ていく|てくる|てある|ておく|てみる|てしまう|られる|させる|せる|れる)',
+          caseSensitive: false,
+          unicode: true,
+        );
+
+         /// ... Pther languages RegExp pattern
+      
+       }
+   
    ```
 
 3. `languages_data.dart`:
